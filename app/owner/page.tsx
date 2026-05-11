@@ -27,7 +27,7 @@ export default async function OwnerLogin({
         <Link href="/" className="display text-2xl">
           Bibi
         </Link>
-        <span className="eyebrow">Owner · sign in</span>
+        <span className="text-sm italic text-stone">Owner sign-in</span>
       </header>
       <div className="rule mt-4" />
 
@@ -43,7 +43,7 @@ export default async function OwnerLogin({
         </p>
 
         <form action={loginAction} className="mt-10">
-          <label className="eyebrow block">Passcode</label>
+          <label className="block text-sm text-stone">Passcode</label>
           <input
             type="password"
             name="password"
@@ -61,8 +61,8 @@ export default async function OwnerLogin({
           >
             Open dashboard
           </button>
-          <p className="eyebrow mt-5 text-center opacity-60">
-            Demo passcode: <span className="tnum">luigi</span>
+          <p className="mt-5 text-center text-sm text-stone-soft">
+            Demo passcode: <span className="tnum text-stone">luigi</span>
           </p>
         </form>
       </section>

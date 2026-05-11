@@ -106,20 +106,25 @@ body::before {
   color: var(--color-paper);
 }
 
-/* Inputs default reset */
-input,
-textarea,
-button,
-select {
-  font: inherit;
-  color: inherit;
-}
-
-input:focus-visible,
-textarea:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-tomato);
-  outline-offset: 2px;
+/* Inputs default reset — must be layered so Tailwind utilities like
+   `.text-paper` can still override `color` on a <button>. Unlayered
+   rules beat layered ones regardless of specificity. */
+@layer base {
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+  button {
+    font: inherit;
+  }
+  input:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-tomato);
+    outline-offset: 2px;
+  }
 }
 
 /* Star tap target — sized via Tailwind classes, this just kills user-select */

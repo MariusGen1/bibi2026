@@ -8,14 +8,14 @@ export default function Home() {
       <header className="rise flex items-baseline justify-between">
         <div className="flex items-baseline gap-3">
           <span className="display text-2xl">Bibi</span>
-          <span className="eyebrow hidden sm:inline">
+          <span className="hidden sm:inline text-sm italic text-stone">
             Feedback for restaurants
           </span>
         </div>
         <nav className="flex items-center gap-5 text-sm">
           <Link
             href="/r/luigis"
-            className="eyebrow text-stone hover:text-ink"
+            className="text-stone hover:text-ink"
           >
             See customer flow
           </Link>
@@ -44,10 +44,9 @@ export default function Home() {
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-stone">
             Yelp tells you your stars. Bibi tells you the
-            carbonara&#39;s gotten salty since the new line cook started, the
-            tiramisu is your best dish and nobody&#39;s ordering it, and the
-            fries are coming out cold on Friday nights. Then your AI
-            general manager writes it up for Monday morning.
+            carbonara&#39;s gotten salty since the new line cook started, and
+            the tiramisu is your best dish but nobody&#39;s ordering it. Your
+            AI general manager writes it up for Monday morning.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -66,9 +65,9 @@ export default function Home() {
             </Link>
           </div>
 
-          <p className="eyebrow mt-6 opacity-70">
+          <p className="mt-6 text-sm text-stone-soft">
             Demo restaurant: Luigi&#39;s Trattoria · password{" "}
-            <span className="tnum">luigi</span>
+            <span className="tnum text-stone">luigi</span>
           </p>
         </div>
 
@@ -118,7 +117,7 @@ export default function Home() {
               </ol>
             </div>
           </div>
-          <p className="eyebrow mt-3 text-center opacity-70">
+          <p className="mt-3 text-center text-xs italic text-stone-soft">
             ↑ Sample AI summary, written from real feedback
           </p>
         </aside>
@@ -178,8 +177,11 @@ export default function Home() {
       <div className="rule mt-24" />
 
       <footer className="mt-6 flex flex-wrap items-center justify-between gap-3 pb-10 text-sm text-stone">
-        <span>Bibi — built in a weekend, with serifs and pomodoro.</span>
-        <span className="eyebrow tnum">© {new Date().getFullYear()}</span>
+        <span>
+          Bibi — for the kitchens that read{" "}
+          <span className="italic">every</span> comment card.
+        </span>
+        <span className="tnum text-stone-soft">© {new Date().getFullYear()}</span>
       </footer>
     </main>
   );
