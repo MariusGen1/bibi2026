@@ -46,11 +46,7 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
-  .deck {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-  }
+  .deck { position: relative; width: 100vw; height: 100vh; }
   .slide {
     position: absolute; inset: 0;
     display: none;
@@ -66,164 +62,68 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* typography primitives */
-  .display {
-    font-family: var(--serif);
-    font-optical-sizing: auto;
-    letter-spacing: -0.01em;
-    line-height: 0.98;
-    font-weight: 500;
-  }
-  .display-italic {
-    font-family: var(--serif);
-    font-style: italic;
-    letter-spacing: -0.005em;
-    font-weight: 500;
-  }
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--stone);
-  }
-  .numeral {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--tomato);
-  }
+  .display { font-family: var(--serif); font-optical-sizing: auto; letter-spacing: -0.01em; line-height: 0.98; font-weight: 500; }
+  .display-italic { font-family: var(--serif); font-style: italic; letter-spacing: -0.005em; font-weight: 500; }
+  .eyebrow { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--stone); }
+  .numeral { font-family: var(--serif); font-style: italic; color: var(--tomato); }
   .tnum { font-variant-numeric: tabular-nums; }
-  .rule {
-    height: 1px;
-    background: color-mix(in oklab, var(--ink) 18%, transparent);
-  }
+  .rule { height: 1px; background: color-mix(in oklab, var(--ink) 18%, transparent); }
   .rule-tomato { background: var(--tomato); height: 2px; width: 56px; }
 
-  /* header / footer chrome on each slide */
   .topbar {
     position: absolute;
     top: clamp(28px, 3vw, 44px);
     left: clamp(48px, 7vw, 120px);
     right: clamp(48px, 7vw, 120px);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    display: flex; justify-content: space-between; align-items: baseline;
     z-index: 2;
   }
-  .topbar .brand {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: -0.01em;
-  }
-  .topbar .meta {
-    font-size: 12px;
-    color: var(--stone);
-    font-style: italic;
-  }
+  .topbar .brand { font-family: var(--serif); font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+  .topbar .meta { font-size: 12px; color: var(--stone); font-style: italic; }
 
   .hud {
-    position: fixed;
-    bottom: 24px;
-    left: 0; right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: fixed; bottom: 24px; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
     padding: 0 clamp(48px, 7vw, 120px);
-    z-index: 10;
-    pointer-events: none;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--stone-soft);
+    z-index: 10; pointer-events: none;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone-soft);
   }
   .hud .keys { font-style: italic; text-transform: none; letter-spacing: 0; font-size: 12px; }
 
-  /* slide-specific layouts */
   .title-mark {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--tomato);
-    font-size: clamp(180px, 22vw, 320px);
-    line-height: 0.85;
-    margin: 0;
+    font-family: var(--serif); font-style: italic; color: var(--tomato);
+    font-size: clamp(180px, 22vw, 320px); line-height: 0.85; margin: 0;
   }
-  .h1 {
-    font-size: clamp(56px, 7vw, 104px);
-  }
-  .h2 {
-    font-size: clamp(40px, 5vw, 72px);
-  }
-  .h3 {
-    font-size: clamp(28px, 3.2vw, 44px);
-  }
-  .lead {
-    font-size: clamp(18px, 1.6vw, 22px);
-    line-height: 1.55;
-    color: var(--stone);
-    max-width: 60ch;
-  }
-  .kicker {
-    font-size: clamp(16px, 1.4vw, 18px);
-    color: var(--stone);
-    font-style: italic;
-  }
+  .h1 { font-size: clamp(64px, 8vw, 120px); }
+  .h2 { font-size: clamp(44px, 5.5vw, 80px); }
+  .h3 { font-size: clamp(28px, 3.2vw, 44px); }
+  .lead { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.55; color: var(--stone); max-width: 60ch; }
+  .kicker { font-size: clamp(14px, 1.3vw, 16px); color: var(--stone); font-style: italic; }
 
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 4vw, 72px);
-    align-items: start;
-  }
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(28px, 3vw, 48px);
-  }
-  .stack > * + * { margin-top: 18px; }
-  .stack-tight > * + * { margin-top: 8px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 4vw, 72px); align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 3vw, 48px); }
+  .stack > * + * { margin-top: 22px; }
 
-  .row {
-    display: flex;
-    align-items: baseline;
-    gap: 18px;
-  }
+  .row { display: flex; align-items: baseline; gap: 18px; }
   .num {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--tomato);
-    font-size: clamp(22px, 2vw, 28px);
-    flex-shrink: 0;
-    width: 1.6em;
+    font-family: var(--serif); font-style: italic; color: var(--tomato);
+    font-size: clamp(28px, 2.6vw, 36px); flex-shrink: 0; width: 1.6em;
   }
-  .label {
-    font-size: clamp(15px, 1.3vw, 18px);
-    color: var(--ink);
-    line-height: 1.5;
-  }
-  .label strong { font-weight: 600; }
-  .label .sub { color: var(--stone); font-size: 0.92em; }
+  .label { font-size: clamp(20px, 1.8vw, 26px); color: var(--ink); line-height: 1.35; font-weight: 500; }
 
-  .pill {
-    display: inline-block;
-    padding: 4px 10px;
-    border: 1px solid color-mix(in oklab, var(--ink) 25%, transparent);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--stone);
-  }
   .chip {
-    display: inline-block;
-    padding: 6px 12px;
-    background: var(--mist);
-    color: var(--ink);
-    font-size: 13px;
-    margin-right: 8px;
-    margin-bottom: 8px;
+    display: inline-block; padding: 8px 14px;
+    background: var(--mist); color: var(--ink);
+    font-size: 14px; margin: 0 8px 10px 0;
     border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
   }
+
+  .stat-num {
+    font-family: var(--serif); font-style: italic; color: var(--tomato);
+    font-size: clamp(64px, 7vw, 96px); line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-cell { display: flex; flex-direction: column; gap: 10px; }
 
   .brief {
     border: 1px solid color-mix(in oklab, var(--ink) 15%, transparent);
@@ -231,86 +131,52 @@
     padding: clamp(20px, 2vw, 32px);
   }
   .brief h4 {
-    margin: 0;
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
+    margin: 0; font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
   }
   .brief .red { color: var(--tomato); }
   .brief .green { color: var(--olive); }
   .brief ol { margin: 12px 0 0; padding: 0; list-style: none; }
   .brief ol li {
-    font-size: clamp(14px, 1.1vw, 16px);
-    padding: 4px 0;
-    line-height: 1.5;
+    font-size: clamp(15px, 1.2vw, 17px);
+    padding: 6px 0; line-height: 1.5;
   }
   .brief ol li .numeral { margin-right: 10px; }
 
   .quote {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(28px, 2.6vw, 38px);
-    line-height: 1.25;
-    color: var(--ink);
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(34px, 3.2vw, 48px);
+    line-height: 1.18; color: var(--ink);
     border-left: 2px solid var(--tomato);
     padding-left: clamp(20px, 2vw, 32px);
     max-width: 22ch;
   }
   .quote-attr {
-    font-style: normal;
-    font-family: var(--sans);
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--stone-soft);
-    margin-top: 16px;
-    display: block;
+    font-style: normal; font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--stone-soft); margin-top: 18px; display: block;
   }
 
   .demo-marker {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; height: 100%;
   }
-  .demo-marker .label {
-    font-size: 14px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 28px;
+  .demo-marker .label-top {
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 28px;
   }
   .demo-marker .big {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--tomato);
-    font-size: clamp(120px, 16vw, 240px);
-    line-height: 0.95;
+    font-family: var(--serif); font-style: italic; color: var(--tomato);
+    font-size: clamp(140px, 18vw, 280px); line-height: 0.95;
   }
   .demo-marker .sub {
-    font-size: clamp(18px, 1.6vw, 22px);
-    color: var(--stone);
-    margin-top: 28px;
-    font-style: italic;
-    max-width: 36ch;
-    line-height: 1.5;
+    font-size: clamp(18px, 1.6vw, 22px); color: var(--stone);
+    margin-top: 28px; font-style: italic; max-width: 36ch; line-height: 1.5;
   }
 
-  .two-col-text {
-    column-count: 2;
-    column-gap: 48px;
-  }
-
-  .star { color: var(--tomato); }
-
-  /* small responsive concession */
   @media (max-width: 800px) {
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .two-col-text { column-count: 1; }
   }
 </style>
 </head>
@@ -321,32 +187,23 @@
   <section class="slide active">
     <div class="topbar">
       <span class="brand">Bibi</span>
-      <span class="meta">Final presentation · May 2026</span>
+      <span class="meta">Final presentation</span>
     </div>
     <div class="grid-2" style="align-items:center;">
       <div>
-        <div class="eyebrow">Issue No. 01 · Hackathon final</div>
-        <h1 class="display h1" style="margin: 18px 0 6px;">
+        <h1 class="display h1" style="margin: 0;">
           Feedback that
           <br />
           <span class="display-italic" style="color:var(--tomato)">tastes like the meal.</span>
         </h1>
-        <div class="rule-tomato" style="margin-top:28px;"></div>
-        <p class="lead" style="margin-top:24px;">
-          A private feedback channel for mom-and-pop restaurants — built
-          around one decision: which menu items to keep, remove, or add.
-        </p>
-        <div class="rule" style="margin-top:36px;"></div>
-        <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:baseline; gap:24px; flex-wrap:wrap;">
-          <div>
-            <div class="eyebrow">Team</div>
-            <div class="display h3" style="margin-top:6px;">Jacob Young &amp; Marius Genton</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="eyebrow">Mock customer</div>
-            <div class="display-italic" style="font-size:22px; margin-top:6px;">Luigi&#39;s Trattoria</div>
-            <div class="kicker" style="margin-top:4px;">a mom-and-pop restaurant</div>
-          </div>
+        <div class="rule-tomato" style="margin-top:36px;"></div>
+        <div style="margin-top:32px;">
+          <div class="eyebrow">Team</div>
+          <div class="display h3" style="margin-top:6px;">Jacob Young &amp; Marius Genton</div>
+        </div>
+        <div style="margin-top:20px;">
+          <div class="eyebrow">Mock customer</div>
+          <div class="display-italic" style="font-size:22px; margin-top:6px;">Luigi&#39;s — a mom-and-pop trattoria</div>
         </div>
       </div>
       <div style="text-align:center;">
@@ -356,26 +213,33 @@
     </div>
   </section>
 
-  <!-- 2. THE CUSTOMER + SUB-JOB -->
+  <!-- 2. CUSTOMER + SUB-JOB -->
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
       <span class="meta">02 — Customer &amp; sub-job</span>
     </div>
-    <div class="grid-2">
+    <div class="grid-2" style="align-items:center;">
       <div>
-        <div class="eyebrow">Who we&#39;re solving for</div>
-        <h2 class="display h2" style="margin:16px 0 0;">
-          Luigi runs a
-          <br />
-          <span class="display-italic">25-table trattoria.</span>
+        <div class="eyebrow">A 25-table independent</div>
+        <h2 class="display h2" style="margin:16px 0 32px;">
+          Meet
+          <span class="display-italic">Luigi.</span>
         </h2>
-        <div class="rule" style="margin-top:28px;"></div>
-        <div class="stack-tight" style="margin-top:20px; font-size:17px; color:var(--stone); line-height:1.6;">
-          <div><span class="numeral">·</span> 28 menu items, 14 years in business</div>
-          <div><span class="numeral">·</span> ~300 covers / week</div>
-          <div><span class="numeral">·</span> Two cooks on the line, three servers, one host</div>
-          <div><span class="numeral">·</span> No data analyst. No CRM. No time.</div>
+        <div class="rule"></div>
+        <div style="margin-top:28px; display:flex; gap:40px; flex-wrap:wrap;">
+          <div>
+            <div class="stat-num">28</div>
+            <div class="eyebrow" style="margin-top:4px;">menu items</div>
+          </div>
+          <div>
+            <div class="stat-num">300</div>
+            <div class="eyebrow" style="margin-top:4px;">covers / week</div>
+          </div>
+          <div>
+            <div class="stat-num">14</div>
+            <div class="eyebrow" style="margin-top:4px;">years in business</div>
+          </div>
         </div>
       </div>
       <div>
@@ -384,11 +248,6 @@
           &ldquo;Which items should I add, remove, or change?&rdquo;
           <span class="quote-attr">— every menu rewrite, twice a year</span>
         </div>
-        <div class="rule" style="margin-top:36px;"></div>
-        <p class="lead" style="margin-top:20px;">
-          A single, recurring, high-stakes decision — made today on
-          intuition, comp tabs, and one loud regular.
-        </p>
       </div>
     </div>
   </section>
@@ -397,98 +256,48 @@
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
-      <span class="meta">03 — Problem statement</span>
+      <span class="meta">03 — Problem</span>
     </div>
     <div class="eyebrow">What Luigi tries today</div>
-    <h2 class="display h2" style="margin:14px 0 32px;">
+    <h2 class="display h2" style="margin:14px 0 48px;">
       Every existing tool answers the
       <span class="display-italic">wrong question.</span>
     </h2>
     <div class="rule"></div>
-    <div class="grid-2" style="margin-top:32px;">
+    <div class="grid-2" style="margin-top:40px;">
       <div class="stack">
-        <div class="row">
-          <span class="num">01.</span>
-          <div class="label">
-            <strong>POS reports</strong>
-            <div class="sub">Tell him what sold — not what was loved. A dish can sell and still leave half the plate.</div>
-          </div>
-        </div>
-        <div class="row">
-          <span class="num">02.</span>
-          <div class="label">
-            <strong>Yelp / Google reviews</strong>
-            <div class="sub">Generic, public, weeks late. The furious and ecstatic write — the merely-happy don&#39;t.</div>
-          </div>
-        </div>
+        <div class="row"><span class="num">01.</span><div class="label">POS — <em style="color:var(--stone)">what sold, not what was loved</em></div></div>
+        <div class="row"><span class="num">02.</span><div class="label">Yelp &amp; Google — <em style="color:var(--stone)">public, late, lopsided</em></div></div>
       </div>
       <div class="stack">
-        <div class="row">
-          <span class="num">03.</span>
-          <div class="label">
-            <strong>Paper comment cards</strong>
-            <div class="sub">Almost no one fills them out. The ones who do mostly write &ldquo;great service!&rdquo;</div>
-          </div>
-        </div>
-        <div class="row">
-          <span class="num">04.</span>
-          <div class="label">
-            <strong>Asking servers</strong>
-            <div class="sub">They relay whichever table was loudest. Always the same two people.</div>
-          </div>
-        </div>
+        <div class="row"><span class="num">03.</span><div class="label">Comment cards — <em style="color:var(--stone)">nobody fills them out</em></div></div>
+        <div class="row"><span class="num">04.</span><div class="label">Asking servers — <em style="color:var(--stone)">the loudest table wins</em></div></div>
       </div>
     </div>
-    <div class="rule" style="margin-top:36px;"></div>
-    <p class="lead" style="margin-top:20px;">
-      <strong style="color:var(--ink)">The missing thing:</strong>
-      item-level signal, from the people who already love the place,
-      delivered privately, in plain English.
+    <div class="rule" style="margin-top:48px;"></div>
+    <p class="kicker" style="margin-top:18px; font-size:18px;">
+      Missing — item-level signal, privately, in plain English.
     </p>
   </section>
 
-  <!-- 4. WHAT BIBI IS -->
+  <!-- 4. WHAT BIBI DOES -->
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
       <span class="meta">04 — What Bibi does</span>
     </div>
-    <div class="eyebrow">Three surfaces, one loop</div>
+    <div class="eyebrow">One loop</div>
     <h2 class="display h2" style="margin:14px 0 32px;">
       Receipt &rarr; ratings &rarr;
-      <span class="display-italic">Monday-morning brief.</span>
+      <span class="display-italic">Monday brief.</span>
     </h2>
     <div class="rule"></div>
-    <div class="grid-3" style="margin-top:36px;">
-      <div>
-        <div class="numeral" style="font-size:44px; line-height:1;">01.</div>
-        <div class="display h3" style="margin-top:10px;">QR on the receipt</div>
-        <div class="rule" style="margin-top:14px;"></div>
-        <p class="lead" style="margin-top:14px; font-size:15px;">
-          Guest scans on the way out. Picks the dishes they ordered. Stars
-          each one. Drops a comment if they feel like it.
-        </p>
-      </div>
-      <div>
-        <div class="numeral" style="font-size:44px; line-height:1;">02.</div>
-        <div class="display h3" style="margin-top:10px;">SMS discount</div>
-        <div class="rule" style="margin-top:14px;"></div>
-        <p class="lead" style="margin-top:14px; font-size:15px;">
-          One-time code by text for their next visit. Captures the phone.
-          Closes the loop. Average completion: 38 seconds.
-        </p>
-      </div>
-      <div>
-        <div class="numeral" style="font-size:44px; line-height:1;">03.</div>
-        <div class="display h3" style="margin-top:10px;">AI weekly brief</div>
-        <div class="rule" style="margin-top:14px;"></div>
-        <p class="lead" style="margin-top:14px; font-size:15px;">
-          A short written summary that names dishes, not feelings. Three
-          to fix, two to push. Refreshed every Monday.
-        </p>
-      </div>
+    <div class="grid-3" style="margin:32px 0;">
+      <div><span class="numeral" style="font-size:40px;">01.</span><div class="display h3" style="margin-top:4px;">Scan</div></div>
+      <div><span class="numeral" style="font-size:40px;">02.</span><div class="display h3" style="margin-top:4px;">Rate</div></div>
+      <div><span class="numeral" style="font-size:40px;">03.</span><div class="display h3" style="margin-top:4px;">Brief</div></div>
     </div>
-    <div class="brief" style="margin-top:40px; max-width:900px;">
+    <div class="brief">
       <div style="display:flex; justify-content:space-between; align-items:baseline;">
         <h4>★ Bibi Weekly — No. 18</h4>
         <h4 class="tnum" style="opacity:0.7;">120 entries</h4>
@@ -498,14 +307,14 @@
         <div>
           <h4 class="red">Fix this week</h4>
           <ol>
-            <li><span class="numeral">01.</span> Carbonara saltiness — 6 complaints / 14 days, ★3.0</li>
+            <li><span class="numeral">01.</span> Carbonara saltiness — 6 complaints, ★3.0</li>
             <li><span class="numeral">02.</span> Truffle fries cold on weekends</li>
           </ol>
         </div>
         <div>
           <h4 class="green">Working</h4>
           <ol>
-            <li><span class="numeral">01.</span> Tiramisu ★5 &amp; under-ordered — push it</li>
+            <li><span class="numeral">01.</span> Tiramisu ★5, under-ordered</li>
             <li><span class="numeral">02.</span> Negroni named unprompted</li>
           </ol>
         </div>
@@ -517,46 +326,38 @@
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
-      <span class="meta">05 — Outcomes &amp; KPIs</span>
+      <span class="meta">05 — KPIs</span>
     </div>
-    <div class="eyebrow">What success looks like at 90 days</div>
-    <h2 class="display h2" style="margin:14px 0 28px;">
+    <div class="eyebrow">90-day targets</div>
+    <h2 class="display h2" style="margin:14px 0 48px;">
       A menu that gets
       <span class="display-italic">smarter every week.</span>
     </h2>
     <div class="rule"></div>
-    <div class="grid-3" style="margin-top:32px;">
-      <div>
-        <div class="eyebrow" style="color:var(--tomato);">Outcomes</div>
-        <div class="rule-tomato" style="margin-top:8px;"></div>
-        <div class="stack-tight" style="margin-top:14px; font-size:15px; line-height:1.55;">
-          <div><span class="numeral">·</span> <strong>2–4 dogs cut</strong> / quarter</div>
-          <div><span class="numeral">·</span> <strong>2–3 puzzles promoted</strong> / quarter</div>
-          <div><span class="numeral">·</span> <strong>1–2 regressions caught</strong> within 14 days</div>
-          <div><span class="numeral">·</span> <strong>~3–5% food-cost saved</strong> by cutting dogs</div>
-          <div><span class="numeral">·</span> <strong>≥18% SMS redemption</strong> within 60 days</div>
-        </div>
+    <div class="grid-3" style="margin-top:48px; row-gap: 56px;">
+      <div class="stat-cell">
+        <div class="stat-num">38s</div>
+        <div class="eyebrow">median completion</div>
       </div>
-      <div>
-        <div class="eyebrow" style="color:var(--olive);">Decision quality</div>
-        <div class="rule-tomato" style="margin-top:8px; background:var(--olive);"></div>
-        <div class="stack-tight" style="margin-top:14px; font-size:15px; line-height:1.55;">
-          <div><span class="numeral">·</span> ≥80% of items have <strong>≥10 ratings/mo</strong> by week 6</div>
-          <div><span class="numeral">·</span> Every brief callout backed by <strong>≥5 ratings + 3 comments</strong></div>
-          <div><span class="numeral">·</span> Variance &gt; ★1.5 flagged as <strong>&ldquo;inconsistent&rdquo;</strong>, not bad</div>
-          <div><span class="numeral">·</span> ≥35% of ratings carry a free-text comment</div>
-        </div>
+      <div class="stat-cell">
+        <div class="stat-num">25%</div>
+        <div class="eyebrow">receipts scanned</div>
       </div>
-      <div>
-        <div class="eyebrow" style="color:var(--saffron);">Product loop</div>
-        <div class="rule-tomato" style="margin-top:8px; background:var(--saffron);"></div>
-        <div class="stack-tight" style="margin-top:14px; font-size:15px; line-height:1.55;">
-          <div><span class="numeral">·</span> <strong>≥25% scan rate</strong> on receipts</div>
-          <div><span class="numeral">·</span> <strong>≥60% completion</strong> after scan</div>
-          <div><span class="numeral">·</span> <strong>≤45s median</strong> time to complete</div>
-          <div><span class="numeral">·</span> <strong>≥70% phone capture</strong> on completion</div>
-          <div><span class="numeral">·</span> Owner opens brief <strong>≥1×/week</strong></div>
-        </div>
+      <div class="stat-cell">
+        <div class="stat-num">18%</div>
+        <div class="eyebrow">SMS redemption</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2–4</div>
+        <div class="eyebrow">dogs cut / quarter</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">≤14d</div>
+        <div class="eyebrow">regressions caught</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">≥10</div>
+        <div class="eyebrow">ratings / item / month</div>
       </div>
     </div>
   </section>
@@ -568,70 +369,55 @@
       <span class="meta">06 — Live demo</span>
     </div>
     <div class="demo-marker">
-      <div class="label">Now showing</div>
+      <div class="label-top">Now showing</div>
       <div class="big">Demo</div>
       <div class="rule-tomato" style="margin-top:32px;"></div>
-      <div class="sub">
-        Customer flow → owner dashboard → AI weekly brief.<br />
-        About a minute, end to end.
-      </div>
+      <div class="sub">Customer flow → owner dashboard → AI brief.</div>
     </div>
   </section>
 
-  <!-- 7. TECH STACK -->
+  <!-- 7. STACK -->
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
-      <span class="meta">07 — Stack &amp; architecture</span>
+      <span class="meta">07 — Stack</span>
     </div>
-    <div class="eyebrow">What it&#39;s built on</div>
-    <h2 class="display h2" style="margin:14px 0 28px;">
+    <div class="eyebrow">Built on</div>
+    <h2 class="display h2" style="margin:14px 0 40px;">
       One Next.js app,
       <span class="display-italic">three surfaces.</span>
     </h2>
     <div class="rule"></div>
-    <div class="grid-2" style="margin-top:32px;">
+    <div style="margin-top:32px;">
+      <span class="chip">Next.js 16</span>
+      <span class="chip">Tailwind v4</span>
+      <span class="chip">React 19</span>
+      <span class="chip">Supabase</span>
+      <span class="chip">Twilio</span>
+      <span class="chip">Claude Opus 4.7</span>
+      <span class="chip">Vercel</span>
+    </div>
+    <div class="rule" style="margin-top:40px;"></div>
+    <div class="grid-3" style="margin-top:36px;">
       <div>
-        <div class="eyebrow">Stack</div>
-        <div style="margin-top:14px;">
-          <span class="chip">Next.js 16 (App Router · Turbopack)</span>
-          <span class="chip">React 19.2</span>
-          <span class="chip">Tailwind v4</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">Supabase (Postgres)</span>
-          <span class="chip">Twilio</span>
-          <span class="chip">Anthropic Claude Opus 4.7</span>
-          <span class="chip">Vercel</span>
-        </div>
-        <div class="rule" style="margin-top:28px;"></div>
-        <div class="eyebrow" style="margin-top:24px;">Architecture in one breath</div>
-        <p class="lead" style="margin-top:12px; font-size:16px;">
-          Server Actions write through the Supabase service role; the
-          anon client is unused. AI summary is a single Claude call with
-          ephemeral prompt caching on the system prompt. SMS goes through
-          Twilio with a mock fallback so dev never blocks.
-        </p>
+        <div class="numeral" style="font-size:36px;">/</div>
+        <div class="display h3" style="margin-top:4px;">Landing</div>
+        <div class="kicker" style="margin-top:6px;">marketing</div>
       </div>
       <div>
-        <div class="eyebrow">Three surfaces, one DB</div>
-        <div class="rule-tomato" style="margin-top:8px;"></div>
-        <div class="stack-tight" style="margin-top:16px; font-size:15px; line-height:1.6;">
-          <div class="row"><span class="num">/</span><div class="label"><strong>Landing.</strong> Editorial marketing page.</div></div>
-          <div class="row"><span class="num">/r/[slug]</span><div class="label"><strong>Customer flow.</strong> Mobile-first ratings + SMS code.</div></div>
-          <div class="row"><span class="num">/owner</span><div class="label"><strong>Owner dashboard.</strong> Item analytics + AI brief.</div></div>
-        </div>
-        <div class="rule" style="margin-top:28px;"></div>
-        <div class="eyebrow" style="margin-top:24px;">Design system</div>
-        <p class="lead" style="margin-top:12px; font-size:16px;">
-          Fraunces serif + Instrument Sans, cream paper, hairline rules,
-          tomato accents, hand-drawn SVG icons. The product reads as a
-          printed trattoria menu, not a SaaS dashboard.
-        </p>
+        <div class="numeral" style="font-size:36px;">/r</div>
+        <div class="display h3" style="margin-top:4px;">Customer</div>
+        <div class="kicker" style="margin-top:6px;">mobile ratings</div>
+      </div>
+      <div>
+        <div class="numeral" style="font-size:36px;">/owner</div>
+        <div class="display h3" style="margin-top:4px;">Dashboard</div>
+        <div class="kicker" style="margin-top:6px;">analytics + AI brief</div>
       </div>
     </div>
   </section>
 
-  <!-- 8. KEY DECISIONS & CHALLENGES -->
+  <!-- 8. DECISIONS & CHALLENGES -->
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
@@ -639,71 +425,23 @@
     </div>
     <div class="grid-2">
       <div>
-        <div class="eyebrow">Key implementation decisions</div>
+        <div class="eyebrow">Implementation choices</div>
         <div class="rule-tomato" style="margin-top:8px;"></div>
-        <div class="stack" style="margin-top:18px;">
-          <div class="row">
-            <span class="num">01.</span>
-            <div class="label">
-              <strong>Server-only writes, no RLS.</strong>
-              <div class="sub">Single-tenant demo. Service-role through server actions; anon client unused. Auth = HMAC-signed passcode cookie.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">02.</span>
-            <div class="label">
-              <strong>AI brief on-demand, not cached.</strong>
-              <div class="sub">Owner clicks &ldquo;write this week&#39;s summary.&rdquo; Cheap enough at hackathon scale; cache later.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">03.</span>
-            <div class="label">
-              <strong>Mock SMS fallback.</strong>
-              <div class="sub">If Twilio env vars are missing, log + on-screen preview. Dev path never blocks.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">04.</span>
-            <div class="label">
-              <strong>Editorial design vocabulary.</strong>
-              <div class="sub">Hairline rules instead of card shadows. Fraunces variable font. No gradients.</div>
-            </div>
-          </div>
+        <div class="stack" style="margin-top:24px;">
+          <div class="row"><span class="num">01.</span><div class="label">Server-only writes</div></div>
+          <div class="row"><span class="num">02.</span><div class="label">AI brief on demand</div></div>
+          <div class="row"><span class="num">03.</span><div class="label">Mock SMS fallback</div></div>
+          <div class="row"><span class="num">04.</span><div class="label">Editorial, not SaaS</div></div>
         </div>
       </div>
       <div>
-        <div class="eyebrow">Technical challenges</div>
+        <div class="eyebrow">What we wrestled with</div>
         <div class="rule-tomato" style="margin-top:8px;"></div>
-        <div class="stack" style="margin-top:18px;">
-          <div class="row">
-            <span class="num">01.</span>
-            <div class="label">
-              <strong>Next.js 16 + Tailwind v4 are new.</strong>
-              <div class="sub">Training data caps at 15/v3. Read vendored docs in <span class="tnum">node_modules/next/dist/docs</span> instead of guessing.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">02.</span>
-            <div class="label">
-              <strong>CSS cascade mystery.</strong>
-              <div class="sub">Unlayered <span class="tnum">button { color: inherit }</span> beat Tailwind&#39;s <span class="tnum">.text-paper</span>. Wrapped reset in <span class="tnum">@layer base</span>.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">03.</span>
-            <div class="label">
-              <strong>OWASP self-audit + hardening.</strong>
-              <div class="sub">HMAC cookie, timing-safe compare, <span class="tnum">crypto.randomInt</span>, IP rate limit, prompt-injection sandbox, HSTS + nosniff headers.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">04.</span>
-            <div class="label">
-              <strong>Favicon, three takes.</strong>
-              <div class="sub">BMP-in-ICO → PNG-in-ICO → RGBA PNG-in-ICO. Tiny, but it&#39;s the first pixel of the brand.</div>
-            </div>
-          </div>
+        <div class="stack" style="margin-top:24px;">
+          <div class="row"><span class="num">01.</span><div class="label">Next.js 16 — not in training data</div></div>
+          <div class="row"><span class="num">02.</span><div class="label">Tailwind v4 layer cascade</div></div>
+          <div class="row"><span class="num">03.</span><div class="label">OWASP self-audit &amp; hardening</div></div>
+          <div class="row"><span class="num">04.</span><div class="label">Favicon — three takes</div></div>
         </div>
       </div>
     </div>
@@ -716,48 +454,24 @@
       <span class="meta">09 — Building with AI · pros</span>
     </div>
     <div class="eyebrow">What we liked</div>
-    <h2 class="display h2" style="margin:14px 0 28px;">
-      An idea on Friday,
-      <span class="display-italic">a deployed product by Sunday.</span>
+    <h2 class="display h2" style="margin:14px 0 48px;">
+      Sunday to Monday,
+      <span class="display-italic">shipped.</span>
     </h2>
     <div class="rule"></div>
-    <div class="grid-2" style="margin-top:32px;">
+    <div class="grid-2" style="margin-top:48px;">
       <div class="stack">
-        <div class="row">
-          <span class="num">★</span>
-          <div class="label">
-            <strong>Claude Code wrote most of the codebase.</strong>
-            <div class="sub">Server actions, Supabase queries, the entire customer flow, the dashboard — drafted, then iterated through plain-English critiques.</div>
-          </div>
-        </div>
-        <div class="row">
-          <span class="num">★</span>
-          <div class="label">
-            <strong>OWASP audit on tap.</strong>
-            <div class="sub">Asked for a Top-10 self-audit. Got five real findings and clean fixes (HMAC cookie, timing-safe compare, rate limit, prompt-injection sandbox, security headers).</div>
-          </div>
-        </div>
+        <div class="row"><span class="num">★</span><div class="label">Wrote most of the codebase</div></div>
+        <div class="row"><span class="num">★</span><div class="label">OWASP audit on tap</div></div>
       </div>
       <div class="stack">
-        <div class="row">
-          <span class="num">★</span>
-          <div class="label">
-            <strong>Design system from a prompt.</strong>
-            <div class="sub">&ldquo;Make it feel like a printed trattoria menu, not a SaaS dashboard.&rdquo; Claude proposed Fraunces + Instrument Sans, the cream palette, and the hairline-rule vocabulary in one shot.</div>
-          </div>
-        </div>
-        <div class="row">
-          <span class="num">★</span>
-          <div class="label">
-            <strong>Gemini drew the &ldquo;b&rdquo; mark.</strong>
-            <div class="sub">Two prompts. Hand-trimmed and re-encoded to a 4.5KB ICO. The favicon on the tab is AI-drawn.</div>
-          </div>
-        </div>
+        <div class="row"><span class="num">★</span><div class="label">Design system from a prompt</div></div>
+        <div class="row"><span class="num">★</span><div class="label">Gemini drew the &ldquo;b&rdquo; mark</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 10. AI TOOLS — CONS & IMPROVEMENTS -->
+  <!-- 10. AI TOOLS — CONS & WISHLIST -->
   <section class="slide">
     <div class="topbar">
       <span class="brand">Bibi</span>
@@ -767,62 +481,19 @@
       <div>
         <div class="eyebrow" style="color:var(--tomato);">Cons</div>
         <div class="rule-tomato" style="margin-top:8px;"></div>
-        <div class="stack" style="margin-top:18px;">
-          <div class="row">
-            <span class="num">·</span>
-            <div class="label">
-              <strong>Stale framework knowledge.</strong>
-              <div class="sub">Confidently wrote Next.js 15 patterns into a Next.js 16 codebase. Had to be explicitly pointed at vendored docs.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">·</span>
-            <div class="label">
-              <strong>No browser eyes.</strong>
-              <div class="sub">Visual issues (the black-on-black button, the muddy favicon) needed human screenshots to even notice.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">·</span>
-            <div class="label">
-              <strong>Over-eager defaults.</strong>
-              <div class="sub">Adds error handling, fallbacks, and abstractions we didn&#39;t ask for. Hard to keep the codebase lean without active pushback.</div>
-            </div>
-          </div>
+        <div class="stack" style="margin-top:24px;">
+          <div class="row"><span class="num">·</span><div class="label">Stale framework knowledge</div></div>
+          <div class="row"><span class="num">·</span><div class="label">No browser eyes</div></div>
+          <div class="row"><span class="num">·</span><div class="label">Over-eager defaults</div></div>
         </div>
       </div>
       <div>
         <div class="eyebrow" style="color:var(--olive);">What we&#39;d change</div>
         <div class="rule-tomato" style="margin-top:8px; background:var(--olive);"></div>
-        <div class="stack" style="margin-top:18px;">
-          <div class="row">
-            <span class="num">→</span>
-            <div class="label">
-              <strong>Read framework docs by default</strong>
-              <div class="sub">on any major-version-bump dependency, instead of waiting to be told.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">→</span>
-            <div class="label">
-              <strong>Built-in browser preview.</strong>
-              <div class="sub">Let the model see the rendered page, not just the source.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">→</span>
-            <div class="label">
-              <strong>Cheaper image-asset iteration.</strong>
-              <div class="sub">Three favicon rebuilds wasted a real chunk of time. A &ldquo;preview an asset at 16/32/48&rdquo; primitive would have caught the muddiness in one round.</div>
-            </div>
-          </div>
-          <div class="row">
-            <span class="num">→</span>
-            <div class="label">
-              <strong>Less reflexive scaffolding.</strong>
-              <div class="sub">Default to the minimum the task needs. Abstract on the third copy, not the first.</div>
-            </div>
-          </div>
+        <div class="stack" style="margin-top:24px;">
+          <div class="row"><span class="num">→</span><div class="label">Read framework docs by default</div></div>
+          <div class="row"><span class="num">→</span><div class="label">Built-in browser preview</div></div>
+          <div class="row"><span class="num">→</span><div class="label">Cheaper asset iteration</div></div>
         </div>
       </div>
     </div>
@@ -836,27 +507,18 @@
     </div>
     <div class="grid-2" style="align-items:center;">
       <div>
-        <div class="eyebrow">For the kitchens that read</div>
-        <h2 class="display h1" style="margin:14px 0 0;">
+        <h2 class="display h1" style="margin:0;">
+          For the kitchens
+          <br />
+          that read
           <span class="display-italic">every</span>
           <br />
           comment card.
         </h2>
-        <div class="rule-tomato" style="margin-top:28px;"></div>
-        <p class="lead" style="margin-top:24px;">
-          Specific. Private. Actionable. That&#39;s the whole pitch.
+        <div class="rule-tomato" style="margin-top:32px;"></div>
+        <p class="kicker" style="margin-top:20px; font-size:18px;">
+          Specific. Private. Actionable.
         </p>
-        <div class="rule" style="margin-top:36px;"></div>
-        <div style="margin-top:20px; display:flex; gap:24px; flex-wrap:wrap;">
-          <div>
-            <div class="eyebrow">Repo</div>
-            <div class="display-italic" style="font-size:18px; margin-top:6px;">github.com/MariusGen1/bibi2026</div>
-          </div>
-          <div>
-            <div class="eyebrow">Team</div>
-            <div class="display-italic" style="font-size:18px; margin-top:6px;">Jacob Young · Marius Genton</div>
-          </div>
-        </div>
       </div>
       <div style="text-align:center;">
         <div class="title-mark">b</div>
@@ -868,7 +530,7 @@
 </div>
 
 <div class="hud">
-  <span class="keys">← → · space · click</span>
+  <span class="keys">← → · space · click · F fullscreen</span>
   <span class="tnum"><span id="cur">1</span> / <span id="tot">11</span></span>
 </div>
 
@@ -882,7 +544,6 @@
     idx = Math.max(0, Math.min(total - 1, n));
     slides.forEach((s, i) => s.classList.toggle("active", i === idx));
     document.getElementById("cur").textContent = idx + 1;
-    // restart the rise animation
     const active = slides[idx];
     active.style.animation = "none";
     void active.offsetWidth;
@@ -891,23 +552,18 @@
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
-      e.preventDefault();
-      show(idx + 1);
+      e.preventDefault(); show(idx + 1);
     } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
-      e.preventDefault();
-      show(idx - 1);
-    } else if (e.key === "Home") {
-      show(0);
-    } else if (e.key === "End") {
-      show(total - 1);
-    } else if (e.key === "f" || e.key === "F") {
+      e.preventDefault(); show(idx - 1);
+    } else if (e.key === "Home") { show(0); }
+    else if (e.key === "End") { show(total - 1); }
+    else if (e.key === "f" || e.key === "F") {
       if (!document.fullscreenElement) document.documentElement.requestFullscreen();
       else document.exitFullscreen();
     }
   });
 
   document.addEventListener("click", (e) => {
-    // Click right half advances, left half goes back. Ignore links.
     if (e.target.closest("a")) return;
     const half = window.innerWidth / 2;
     if (e.clientX > half) show(idx + 1);
