@@ -14,7 +14,12 @@ export default async function OwnerLogin({
     redirect("/owner/dashboard");
   }
   const sp = await searchParams;
-  const showError = sp.e === "1";
+  const errorMessage =
+    sp.e === "rate"
+      ? "Too many tries — wait a minute and try again."
+      : sp.e === "1"
+        ? "That's not the right passcode."
+        : null;
 
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col px-6 py-10">
@@ -47,10 +52,8 @@ export default async function OwnerLogin({
             className="mt-2 w-full border-b border-ink/30 bg-transparent py-2 text-lg tnum focus:border-tomato focus:outline-none"
             placeholder="••••••"
           />
-          {showError && (
-            <p className="mt-3 text-sm text-tomato">
-              That&#39;s not the right passcode.
-            </p>
+          {errorMessage && (
+            <p className="mt-3 text-sm text-tomato">{errorMessage}</p>
           )}
           <button
             type="submit"

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { discountMessage, sendSms, type SmsResult } from "@/lib/sms";
 import { formatPhone, generateDiscountCode } from "@/lib/utils";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 const Schema = z.object({
   restaurantId: z.string().uuid(),
@@ -34,6 +35,14 @@ export type SubmitResult =
 export async function submitFeedback(
   raw: unknown
 ): Promise<SubmitResult> {
+  const ip = await clientIp();
+  const rl = rateLimit(`submit:${ip}`, 10, 60 * 60_000);
+  if (!rl.ok) {
+    return {
+      ok: false,
+      error: `Too many submissions — try again in ${Math.ceil(rl.retryAfterSec / 60)} min.`,
+    };
+  }
   const parsed = Schema.safeParse(raw);
   if (!parsed.success) {
     return {

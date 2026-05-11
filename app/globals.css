@@ -59,7 +59,7 @@ body::before {
 .eyebrow {
   font-family: var(--font-instrument), sans-serif;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--color-stone);

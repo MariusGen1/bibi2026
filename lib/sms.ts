@@ -13,9 +13,14 @@ export type SmsResult =
   | { mode: "mocked"; preview: string }
   | { mode: "error"; error: string };
 
+function maskPhone(p: string): string {
+  if (p.length < 5) return "•".repeat(p.length);
+  return p.slice(0, 2) + "•".repeat(p.length - 6) + p.slice(-4);
+}
+
 export async function sendSms(to: string, body: string): Promise<SmsResult> {
   if (!enabled || !client) {
-    console.log(`[sms:mock] → ${to}\n${body}\n`);
+    console.log(`[sms:mock] → ${maskPhone(to)}\n${body}\n`);
     return { mode: "mocked", preview: body };
   }
   try {
